@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Opera GX Web (Final Update)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-red">
+
+  <div id="ui-border"></div>
+  <div id="crt-overlay"></div>
+
+  <div id="sidebar">
+    <div id="gx-logo" title="Main Menu">
+      <img src="https://i.imgflip.com/6xrhwm.png" alt="O">
+    </div>
+
+    <div class="sidebar-icon" id="gx-control-btn" title="GX Control">
+      <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+    </div>
+    
+    <div class="sidebar-icon" onclick="window.navigateExtern('https://twitch.tv')">
+      <svg viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h2.998L22.286 11.57V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>
+    </div>
+
+    <div class="sidebar-icon" id="player-btn" title="Music">
+      <svg viewBox="0 0 24 24"><path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+    </div>
+
+    <div style="flex:1"></div>
+    <div class="sidebar-icon" id="settings-btn" title="GX Mods">
+      <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59-.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+    </div>
+  </div>
+
+  <div id="main-menu" class="popup-menu">
+    <div class="menu-item" onclick="createTab(); $('#main-menu').classList.remove('show');"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> New Tab</div>
+    <div class="menu-item" onclick="alert('New Window triggered');"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg> New Window</div>
+    <div class="menu-sep"></div>
+    <div class="menu-item" onclick="alert('History panel triggered');"><svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg> History</div>
+    <div class="menu-item" onclick="alert('Opera GX Web\nVersion 2.0');"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> About GX</div>
+  </div>
+
+  <div id="settings-popup" class="popup-menu">
+    <div class="control-label">GX Mods</div>
+    <div style="margin-top:10px">
+      <div style="font-size:12px; margin-bottom:5px; color:#aaa">Accent Color</div>
+      <div class="theme-opt active" style="background:#fa1e4e" onclick="setTheme('red', this)"></div>
+      <div class="theme-opt" style="background:#00f2ff" onclick="setTheme('cyan', this)"></div>
+      <div class="theme-opt" style="background:#bd00ff" onclick="setTheme('purple', this)"></div>
+      <div class="theme-opt" style="background:#00ff41" onclick="setTheme('green', this)"></div>
+      <div class="theme-opt" style="background:#fff200" onclick="setTheme('yellow', this)"></div>
+      <div class="theme-opt" style="background:#ff9100" onclick="setTheme('orange', this)"></div>
+    </div>
+    <div class="switch-row" onclick="toggleCRT()"><span>CRT Shader</span> <div class="toggle-switch" id="crt-toggle"></div></div>
+    <div class="switch-row" onclick="toggleForceDark()"><span>Force Dark</span> <div class="toggle-switch" id="dark-toggle"></div></div>
+    <div class="switch-row" onclick="toggleSound()"><span>Sounds</span> <div class="toggle-switch active" id="sound-toggle"></div></div>
+  </div>
+
+  <div id="gx-control-panel">
+    <div class="panel-header">GX Control <span id="close-gx-control" class="close-panel-btn">×</span></div>
+    <div class="control-group">
+      <div class="control-label">RAM Limiter</div>
+      <div class="switch-row"><span>Enable</span> <div class="toggle-switch active"></div></div>
+      <div class="dummy-meter"><div class="dummy-fill" style="width:45%"></div></div>
+    </div>
+    <div class="control-group">
+      <div class="control-label">CPU Limiter</div>
+      <div class="switch-row"><span>Enable</span> <div class="toggle-switch"></div></div>
+      <div class="dummy-meter"><div class="dummy-fill" style="width:12%"></div></div>
+    </div>
+  </div>
+
+  <div id="browser-column">
+    <div id="top-bar">
+      <div id="tabs-strip">
+        <div id="tabs-container" style="display:flex; gap:6px;"></div>
+        <div id="new-tab-btn" title="New Tab"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></div>
+      </div>
+      <div id="address-toolbar">
+        <button class="nav-btn" id="back-btn" disabled><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+        <button class="nav-btn" id="forward-btn" disabled><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></button>
+        <button class="nav-btn" id="reload-btn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg></button>
+        <div id="urlbar-wrapper">
+          <div style="color:var(--gx-accent); margin-right:12px; font-weight:900; letter-spacing:1px; font-size:14px">GX</div>
+          <input id="urlbar-input" type="text" placeholder="Search or Type URL" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+    <div id="viewport">
+      <div id="speed-dial-view" class="active"></div>
+      <div id="web-content" style="flex:1; display:flex; flex-direction:column; width:100%; height:100%;"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
